@@ -1,13 +1,10 @@
-import { knex } from 'knex'
-import dotenv from 'dotenv'
-
-dotenv.config()
+import { knex } from "knex"
 
 export abstract class BaseDatabase {
     protected static connection = knex({
         client: "sqlite3",
         connection: {
-            filename: process.env.DB_FILE_PATH as string,
+            filename: "./src/database/arquitetura.db",
         },
         useNullAsDefault: true,
         pool: { 
